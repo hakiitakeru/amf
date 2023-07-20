@@ -46,7 +46,7 @@ func dispatchMain(ran *context.AmfRan, message *ngapType.NGAPPDU) {
 		case ngapType.ProcedureCodeInitialContextSetup:
 			handlerInitialContextSetupRequest(ran, initiatingMessage)
 		case ngapType.ProcedureCodeInitialUEMessage:
-			handlerInitialUEMessage(ran, message, initiatingMessage)
+			go handlerInitialUEMessage(ran, message, initiatingMessage)
 		case ngapType.ProcedureCodeLocationReport:
 			handlerLocationReport(ran, initiatingMessage)
 		case ngapType.ProcedureCodeLocationReportingControl:
